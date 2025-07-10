@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.5",
     "@types/mdx": "^2.0.13",
     "mdast-util-mdx-jsx": "^3.2.0",
     "next": "15.3.5",
