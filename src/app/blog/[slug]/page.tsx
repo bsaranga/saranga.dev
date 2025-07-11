@@ -26,15 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return
   }
 
-  const {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata
-  const ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}&slug=${encodeURIComponent(slug)}`
+  const { title, publishedAt: publishedTime, summary: description, } = post.metadata
+  const ogImage = `${baseUrl}/og?slug=${slug}`;
 
   return {
     title,
@@ -88,9 +81,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}&slug=${encodeURIComponent(post.slug)}`,
+            image: `/og?slug=${encodeURIComponent(post.slug)}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',

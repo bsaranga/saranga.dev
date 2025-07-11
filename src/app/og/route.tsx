@@ -1,10 +1,10 @@
 /*eslint-disable @next/next/no-img-element*/
 import { ImageResponse } from 'next/og'
+import { getBlogPosts } from '../blog/utils'
 export async function GET(request: Request) {
   const url = new URL(request.url)
-  console.log(url.protocol)
-  const title = url.searchParams.get('title') || 'Saranga.dev Blog'
   const slug = url.searchParams.get('slug') || 'default-slug'
+  const { metadata } = (await getBlogPosts()).filter((post) => post.slug === slug)[0];
 
   return new ImageResponse(
     (
@@ -12,7 +12,7 @@ export async function GET(request: Request) {
           <img style={{
             position:'absolute',
             opacity: 0.5,
-          }} src={`${url.protocol}//${url.host}/img/og/${slug}.png`} alt="" />
+          }} src={`${url.protocol}//${url.host}${metadata.image}`} alt={metadata.altImage} />
         <div style={{
           display:'flex',
           position: 'absolute',
@@ -28,7 +28,7 @@ export async function GET(request: Request) {
                 textAlign: 'center',
               }}
             >
-            {title}
+            {metadata.title}
           </h2>
         </div>
         <div
