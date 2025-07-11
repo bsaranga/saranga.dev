@@ -1,6 +1,9 @@
 /*eslint-disable @next/next/no-img-element*/
 import { ImageResponse } from 'next/og'
 import { getBlogPosts } from '../blog/utils'
+
+const DEBUG = false;
+
 export async function GET(request: Request) {
   const url = new URL(request.url)
   const slug = url.searchParams.get('slug') || 'default-slug'
@@ -12,7 +15,7 @@ export async function GET(request: Request) {
           <img style={{
             position:'absolute',
             opacity: 0.5,
-          }} src={`${url.protocol}//${url.host}${metadata.image}`} alt={metadata.altImage} />
+          }} src={DEBUG ? `${url.protocol}//${url.host}${metadata.image}` : `https://saranga.dev${metadata.image}`} alt={metadata.altImage} />
         <div style={{
           display:'flex',
           position: 'absolute',
