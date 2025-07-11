@@ -17,6 +17,7 @@
     "next-mdx-remote-client": "^2.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-share": "^5.2.2",
     "sugar-high": "^0.9.3"
   },
   "devDependencies": {
