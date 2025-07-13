@@ -8,7 +8,6 @@ const DEBUG = false;
 
 export async function GET(request: Request) {
   const inter = await readFile(join(process.cwd(), 'public', 'fonts', 'Inter_24pt-SemiBold.ttf'));
-  console.log(inter)
   const url = new URL(request.url)
   const slug = url.searchParams.get('slug') || 'default-slug'
   const isRoot = url.pathname === '/og' && slug === 'default-slug';

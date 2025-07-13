@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     title: 'Saranga B Dot Dev',
     description: 'Full-stack .NET specialist passionate about crafting reliable, maintainable software. I thrive on modernizing legacy systems, driving clean code and TDD, and building scalable solutions that last. Problem solver at heart, focused on delivering high-quality, future-ready software.',
     url: baseUrl,
+    images: [{
+      url: `${baseUrl}/og`,
+      width: 1200,
+      height: 630,
+      alt: 'Saranga B Dot Dev',
+    }],
     siteName: 'Saranga B Dot Dev',
     locale: 'en_US',
     type: 'website',
