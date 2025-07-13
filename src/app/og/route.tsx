@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     return new ImageResponse(<div tw='flex w-full h-full bg-black'>
       <img style={{
         height: '630px',
-      }} src={'http://localhost:3000/profile_pic.jpg'} alt='profile_image'/>
+      }} src={DEBUG ? 'http://localhost:3000/profile_pic.jpg' : 'https://saranga.dev/profile_pic.jpg'} alt='profile_image'/>
       <div tw='text-white flex items-center justify-center flex-col flex-1 px-12'>
         <div tw='text-4xl text-justify'>saranga.dev is a blog that explores the craft of software engineering through deep dives into computer science concepts, the Microsoft .NET ecosystem, cutting-edge developer tools, and the evolving impact of generative AI—designed for engineers who think beyond the code.</div>
       </div>
